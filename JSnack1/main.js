@@ -20,31 +20,28 @@ $(document).ready(function() {
             'weight': 8
         }
     ];
-    // clicare tutti gli oggetti tramite un ciclo for
+    // Creo una variabile peso minore ed inserisco il valore peso del primo oggetto
+    var lessWeight = bikeModels[0].weight;
+    // creo una variabile nome e la inizializzo con il nome del primo oggetto
+    var bikeName;
+
+    // scorro l'array e verifico il peso di ogni bici
     for (var i = 0; i < bikeModels.length; i++) {
-        console.log("Bicicletta " + (i+1));
-        // stampare la proprietà weight degli oggetti dell'array bikeModels
-        for (var key in bikeModels) {
-            var weight = bikeModels[i]['weight'];
-            console.log(weight);
-        };
-    };
-    var bikesWeight = [];
-    for (var i = 0; i < bikeModels.length; i++) {
+        // creo una variabile bici corrente per prendere in esame una bici alla volta
         var currentBike = bikeModels[i];
+        var weight = currentBike.weight;
+        console.log(weight);
+        var currentName = currentBike.name;
+        console.log(currentName);
 
-        // inserire il peso delle biciclette nell'array bikesWeight
-        bikesWeight.push(currentBike['weight']);
-        console.log(bikesWeight);
-
-        // cerco nell'array invocando la funzione getMinOfArray() il peso minimo
-        var minWeight = getMinOfArray(bikesWeight);
-        console.log(minWeight);
-    };
+        // se il peso della bicicletta in esame è minore di lessWeight aggiorno il valore di lessWeight perchè è il peso minore trovato fino ad ora
+        if (weight < lessWeight) {
+            lessWeight = weight;
+            bikeName = currentName;
+        }
+    }
+    console.log('Il peso più basso è: ' + lessWeight + 'kg');
+    // console.log(bikeName);
+    // // stampo in pagina la bici più leggera
+    // $("h1").text("La bici più leggera è: " + bikeName);
 });
-
-
-// creo una funzione per trovare il numero minimo in un array
-function getMinOfArray(numArray) {
-  return Math.min.apply(null, numArray);
-}
