@@ -28,3 +28,16 @@ $(document).ready(function() {
         }
     };
 });
+
+
+// var n1 = 234;
+// var n2 = 985;
+// var n3 = 1234;
+//
+//
+// var minnum = minnum(n1, n2, n3);
+// alert(minnum);
+
+function minnum() {
+    return Math.min.apply(this,arguments);
+}
