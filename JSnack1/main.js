@@ -20,24 +20,31 @@ $(document).ready(function() {
             'weight': 8
         }
     ];
-
+    // clicare tutti gli oggetti tramite un ciclo for
     for (var i = 0; i < bikeModels.length; i++) {
         console.log("Bicicletta " + (i+1));
-        for(var key in bikeModels[i]){
-            console.log(key + ": " + bikeModels[i][key]);
-        }
+        // stampare la proprietà weight degli oggetti dell'array bikeModels
+        for (var key in bikeModels) {
+            var weight = bikeModels[i]['weight'];
+            console.log(weight);
+        };
+    };
+    var bikesWeight = [];
+    for (var i = 0; i < bikeModels.length; i++) {
+        var currentBike = bikeModels[i];
+
+        // inserire il peso delle biciclette nell'array bikesWeight
+        bikesWeight.push(currentBike['weight']);
+        console.log(bikesWeight);
+
+        // cerco nell'array invocando la funzione getMinOfArray() il peso minimo
+        var minWeight = getMinOfArray(bikesWeight);
+        console.log(minWeight);
     };
 });
 
 
-// var n1 = 234;
-// var n2 = 985;
-// var n3 = 1234;
-//
-//
-// var minnum = minnum(n1, n2, n3);
-// alert(minnum);
-
-function minnum() {
-    return Math.min.apply(this,arguments);
+// creo una funzione per trovare il numero minimo in un array
+function getMinOfArray(numArray) {
+  return Math.min.apply(null, numArray);
 }
