@@ -20,7 +20,14 @@ $(document).ready(function() {
     }
     console.log(arrayUserNumbers);
 
-    // // creo un array vuoto dove inserire i nomi compresi nelle posizioni scelte dall'utente
-    // var userName = [];
+    // creo un array vuoto dove inserire i nomi compresi nelle posizioni scelte dall'utente
+    var userName = [];
 
+    // creo un ciclo per for per ciclare i nomi e inserire nell'array solo quelli compresi tra i numeri dell'numeri_utente
+    for (var i = 0; i < names.length; i++) {
+        if (i >= arrayUserNumbers[0] && i <= arrayUserNumbers[1]) {
+            userName.push(names[i]);
+        }
+    }
+    console.log(userName);
 });
