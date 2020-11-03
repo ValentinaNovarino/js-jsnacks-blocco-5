@@ -1,47 +1,57 @@
 $(document).ready(function() {
     // Creare un array di oggetti: ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. Stampare a schermo la bici con peso minore.
 
-    // creare l'array di oggetti
-    var bikeModels = [
+    // creare un array di oggetti
+    var bike = [
         {
-            'name': 'Wilier 0 SLR',
-            'weight': 6
+            name: "MMR Kenta",
+            weight: "10,54"
         },
         {
-            'name': 'Cannondale SuperSix EVOHi-MOD Disc Dura Ace',
-            'weight': 8
+            name: "Olimpya F1X",
+            weight: "10,80"
         },
         {
-            'name': 'Trek Emonda 2020',
-            'weight': 7
+            name: "Torpado Matador X",
+            weight: "10,44"
         },
         {
-            'name': 'SAVA Phantom 2.0 700C',
-            'weight': 8
+            name: "Santa Cruz Blur",
+            weight: "11,12"
         }
     ];
-    // Creo una variabile peso minore ed inserisco il valore peso del primo oggetto
-    var lessWeight = bikeModels[0].weight;
-    // creo una variabile nome e la inizializzo con il nome del primo oggetto
-    var bikeName;
+    console.log(bike);
 
-    // scorro l'array e verifico il peso di ogni bici
-    for (var i = 0; i < bikeModels.length; i++) {
-        // creo una variabile bici corrente per prendere in esame una bici alla volta
-        var currentBike = bikeModels[i];
+    // creo una variabile lessWeight e salvo come valore il peso del primo oggetto dell'array bike
+    var lessWeight = bike[0].weight;
+    // console.log(lessWeight);
+
+    // creo una variabile bikeName per salvare il nome della bici il cui peso viene salvato nella variabile lessWeight
+    var bikeName = bike[0].name;
+
+    // scorro l'array con un ciclo for e esamino tutte le bici
+    for (var i = 0; i < bike.length; i++) {
+        // creo una variabile currentBike per esaminare una bici alla volta
+        var currentBike = bike[i];
+        console.log(currentBike);
+
+        // creo una variabile weight per salvare il peso della bici esaminata
         var weight = currentBike.weight;
         console.log(weight);
-        var currentName = currentBike.name;
-        console.log(currentName);
 
-        // se il peso della bicicletta in esame è minore di lessWeight aggiorno il valore di lessWeight perchè è il peso minore trovato fino ad ora
+        // creo una variabile currentName per salvare il nome della bici esaminata
+        var currentBikeName = currentBike.name;
+        console.log(currentBikeName);
+
+        // se il weight della bici esaminata è minore di lessWeight allora salvo quel weight come lessWeight perchè sarebbe il più basso trovato fino a quel momento
         if (weight < lessWeight) {
+
             lessWeight = weight;
-            bikeName = currentName;
+
+            bikeName = currentBikeName;
         }
     }
-    console.log('Il peso più basso è: ' + lessWeight + 'kg');
-    // console.log(bikeName);
-    // // stampo in pagina la bici più leggera
-    // $("h1").text("La bici più leggera è: " + bikeName);
+    console.log(lessWeight);
+    console.log(bikeName);
+
 });
